@@ -1,5 +1,9 @@
 import os
-from flask import Flask, request, abort, jsonify
+from flask import (
+                   Flask,
+                   request,
+                   jsonify,
+                   abort)
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from models import setup_db, Movie, Actor
@@ -25,8 +29,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-        SECRETS = os.environ.get('SECRETS')
-        return 'Welcome to FSND capstone project!!'
+        return jsonify({'message': 'Welcome to Capstone})
 
     # ---------------------------------------------------------
     # Routes
@@ -46,7 +49,7 @@ def create_app(test_config=None):
                 'success': True,
                 'movies': movies
             }), 200
-        except:
+        except ImportError:
             abort(404)
 
     '''
@@ -63,7 +66,7 @@ def create_app(test_config=None):
                 'success': True,
                 'actors': actors
             }), 200
-        except:
+        except ImportError:
             abort(404)
 
     '''
@@ -84,7 +87,7 @@ def create_app(test_config=None):
                 'success': True,
                 'created': [movie.format()]
             }), 200
-        except:
+        except ImportError:
             abort(422)
 
     '''
@@ -107,7 +110,7 @@ def create_app(test_config=None):
                 'success': True,
                 'created': [actor.format()]
             }), 200
-        except:
+        except ImportError:
             abort(422)
 
     '''
@@ -132,7 +135,7 @@ def create_app(test_config=None):
                     'success': True,
                     'updated': [update_movie.format()]
                 }), 200
-            except:
+            except ImportError:
                 abort(422)
         else:
             abort(404)
@@ -166,7 +169,7 @@ def create_app(test_config=None):
                     'success': True,
                     'updated': [update_actor.format()]
                 }), 200
-            except:
+            except ImportError:
                 abort(422)
         else:
             abort(404)
@@ -186,7 +189,7 @@ def create_app(test_config=None):
                     'success': True,
                     'deleted': id
                 }), 200
-            except:
+            except ImportError:
                 abort(422)
         else:
             abort(404)
@@ -207,7 +210,7 @@ def create_app(test_config=None):
                     'success': True,
                     'deleted': id
                 }), 200
-            except:
+            except ImportError:
                 abort(422)
         else:
             abort(404)

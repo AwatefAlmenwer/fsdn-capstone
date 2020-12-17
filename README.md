@@ -1,7 +1,7 @@
 # Udacity FSDN Capstone Project
 ## General Specifications
 
-Heroku Link: https://.herokuapp.com
+Heroku Link: https://fsndp-awatef.herokuapp.com/
 
 While running locally: http://localhost:5000
 
@@ -41,7 +41,7 @@ source env/bin/activate
 
 Once you have your virtual environment setup and running, this will install all of the required packages we selected within the `requirements.txt` file.:
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 #### 4. Setup Database locally
